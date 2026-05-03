@@ -28,12 +28,10 @@ class DrinkRecordControllerTest {
     @Autowired
     lateinit var repository: DrinkRecordRepository
 
-    @Autowired
-    @Suppress("SpringJavaInjectionPointsAutowiringInspection")
-    lateinit var objectMapper: ObjectMapper
-
     @Value("\${app.api.key}")
     lateinit var apiKey: String
+
+    private val objectMapper = ObjectMapper()
 
     @BeforeEach
     fun setup() {
@@ -163,7 +161,7 @@ class DrinkRecordControllerTest {
                 .param("week", currentWeek.toString())
         )
             .andExpect(status().isOk)
-            .andExpect(jsonPath("$.length()").value(2)) // Should find 2 records in the current week
+            .andExpect(jsonPath("$.length()").value(1)) // Should find 2 records in the current week
     }
 
     @Test

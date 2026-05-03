@@ -3,11 +3,11 @@ package com.alfred.serv.drinkmonitor
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@SpringBootTest
 class DrinkRecordRepositoryTest {
 
     @Autowired
